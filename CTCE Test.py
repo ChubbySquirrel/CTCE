@@ -77,13 +77,11 @@ def IsConnected (termlist,N):
     return elementdict
 
 
-def Adjacency_list(dict,N):
-    for k,v in dict.items(): 
-        
-        
+# def Adjacency_list(dict,N):
+#     for k,v in dict.items(): 
+    
 
-
-    return adj_list
+#     return adj_list
 
 
 def main(N):
