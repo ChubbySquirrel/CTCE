@@ -48,7 +48,7 @@ def expand(N):
 
 def IsConnected (termlist,N):
     elementdict = dict.fromkeys(range(1,N+1))
-    
+    adj_list = dict.fromkeys(range(0,N))
     for i, element in enumerate(termlist):
         B = []
         for argi in element.args:
@@ -76,38 +76,11 @@ def IsConnected (termlist,N):
 
     return elementdict
 
-def isconnected2 (termlist,N):
-    adj_list = dict.fromkeys(range(0,N))
-
-    for i, element in enumerate(termlist):
-        B = []
-        for argi in element.args:
-            if type(argi) == smp.tensor.indexed.Indexed:
-                B.append(tuple(smp.sets.sets.FiniteSet(*list(argi.indices))) )
-            if type(argi) == smp.core.mul.Mul:
-                new_list = argi.args
-                itemset = smp.sets.sets.FiniteSet(*list(new_list[0].indices))
-                new_tuple = tuple()
-                subset = smp.sets.sets.FiniteSet(*list(new_list[0].indices))
-                for i, argi2 in enumerate(new_list):
-                    
-                    if i== 0:
-                        new_tuple += tuple(argi2.indices)
-                    if i >= 1:
-                        intersection = itemset.intersect(subset)
-                        if len(intersection) > 0:
-                            new_tuple += tuple(argi2.indices)
-                            subset.union(intersection)
-                B.append(new_tuple)
-
-        elementdict[i+1] = B 
-
-
-    return adj_list
-
 
 def Adjacency_list(dict,N):
-    for key in dict:
+    for k,v in dict.items(): 
+        
+        
 
 
     return adj_list
