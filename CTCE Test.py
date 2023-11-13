@@ -110,8 +110,8 @@ def isomorphism(dictionary,N):
         for i in range(0,len(value)):
             for j in range(i+1,len(value)):
                 print(value[i][0],value[j][0])
-                Graph1 = pyn.Graph(value[i][0])
-                Graph2 = pyn.Graph(value[j][0])
+                Graph1 = pyn.Graph(number_of_vertices=N,directed=False,adjacency_dict=value[i][0],vertex_coloring=[set(range(0,N))])
+                Graph2 = pyn.Graph(number_of_vertices=N,directed=False,adjacency_dict=value[j][0],vertex_coloring=[set(range(0,N))])
                 if pyn.isomorphic(Graph1,Graph2) == True:
                     value.remove(value[j])
                     value[i][1] += 1
